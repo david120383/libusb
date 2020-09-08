@@ -1,0 +1,30 @@
+1.在linux下解压之后，执行命令
+
+configure->make->make install
+
+ 
+
+但是当你执行configure的时候会出现以下问题：
+
+configure: error: "udev support requested but libudev not installed"
+
+ 
+
+解决：
+
+应当执行./configure --disable-udev ,配置其去掉udev的依赖。
+
+然后再执行 make和make install。
+
+在/usr/local/include/libusb-1.0/下可以看到头文件 libusb.h
+
+在/usr/local/lib/下可以看到库文件
+
+
+
+
+2.也可以参考https://www.jianshu.com/p/ad9ab41a26bf
+
+
+3.编译使用了libusb库的程序是，需要指定libusb库  -lusb-1.0
+例如：gcc hid_test_show.c -o hid -lusb-1.0
